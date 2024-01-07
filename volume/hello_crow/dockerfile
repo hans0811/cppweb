@@ -1,0 +1,11 @@
+FROM cppbox:latest
+WORKDIR /usr/src/cppweb/hello_crow
+COPY . .
+
+
+WORKDIR /usr/src/cppweb/hello_crow/build
+RUN cmake .
+RUN make
+RUN cd /usr/src/cppweb/hello_crow/build
+RUN echo "TEST"
+CMD ["sh"]

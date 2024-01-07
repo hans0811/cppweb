@@ -235,6 +235,9 @@ hello_crow_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 hello_crow_SOURCE_DIR:STATIC=/Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow
 
+//The directory containing a CMake configuration file for libmongocxx.
+libmongocxx_DIR:PATH=libmongocxx_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

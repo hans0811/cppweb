@@ -1,0 +1,142 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: hello_crow
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target hello_crow
+
+
+#############################################
+# Order-only phony target for hello_crow
+
+build cmake_object_order_depends_target_hello_crow: phony || CMakeFiles/hello_crow.dir
+
+build CMakeFiles/hello_crow.dir/main.cpp.o: CXX_COMPILER__hello_crow_Debug /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/main.cpp || cmake_object_order_depends_target_hello_crow
+  DEFINES = -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB
+  DEP_FILE = CMakeFiles/hello_crow.dir/main.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu++17
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/hello_crow.dir
+  OBJECT_FILE_DIR = CMakeFiles/hello_crow.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target hello_crow
+
+
+#############################################
+# Link the executable hello_crow
+
+build hello_crow: CXX_EXECUTABLE_LINKER__hello_crow_Debug CMakeFiles/hello_crow.dir/main.cpp.o | /opt/homebrew/lib/libboost_system-mt.dylib /opt/homebrew/lib/libboost_filesystem-mt.dylib /opt/homebrew/lib/libboost_atomic-mt.dylib
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = /opt/homebrew/lib/libboost_system-mt.dylib  /opt/homebrew/lib/libboost_filesystem-mt.dylib  /opt/homebrew/lib/libboost_atomic-mt.dylib
+  OBJECT_DIR = CMakeFiles/hello_crow.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = hello_crow
+  TARGET_PDB = hello_crow.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow -B/Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug
+
+build all: phony hello_crow
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfig.cmake /opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfigVersion.cmake /opt/homebrew/lib/cmake/BoostDetectToolset-1.83.0.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/boost_atomic-config-version.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/boost_atomic-config.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/libboost_atomic-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/libboost_atomic-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/boost_filesystem-config-version.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/boost_filesystem-config.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-shared.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-static.cmake /opt/homebrew/lib/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /opt/homebrew/lib/cmake/boost_headers-1.83.0/boost_headers-config.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/boost_system-config-version.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/boost_system-config.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-shared.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfig.cmake /opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfigVersion.cmake /opt/homebrew/lib/cmake/BoostDetectToolset-1.83.0.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/boost_atomic-config-version.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/boost_atomic-config.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/libboost_atomic-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_atomic-1.83.0/libboost_atomic-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/boost_filesystem-config-version.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/boost_filesystem-config.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-shared.cmake /opt/homebrew/lib/cmake/boost_filesystem-1.83.0/libboost_filesystem-variant-static.cmake /opt/homebrew/lib/cmake/boost_headers-1.83.0/boost_headers-config-version.cmake /opt/homebrew/lib/cmake/boost_headers-1.83.0/boost_headers-config.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/boost_system-config-version.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/boost_system-config.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-mt-shared.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-mt-static.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-shared.cmake /opt/homebrew/lib/cmake/boost_system-1.83.0/libboost_system-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

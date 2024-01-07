@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_SYSTEM_DYN_LINK
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/usr/local/include/mongocxx/v_noabi -I/usr/local/include/bsoncxx/v_noabi
 
 CXX_FLAGS = -std=gnu++17
 

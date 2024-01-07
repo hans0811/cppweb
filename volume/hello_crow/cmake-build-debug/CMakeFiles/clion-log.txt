@@ -1,4 +1,21 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow -B /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug
+CMake Error at CMakeLists.txt:14 (find_package):
+  By not providing "Findlibmongocxx.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "libmongocxx", but CMake did not find one.
+
+  Could not find a package configuration file provided by "libmongocxx" with
+  any of the following names:
+
+    libmongocxxConfig.cmake
+    libmongocxx-config.cmake
+
+  Add the installation prefix of "libmongocxx" to CMAKE_PREFIX_PATH or set
+  "libmongocxx_DIR" to a directory containing one of the above files.  If
+  "libmongocxx" provides a separate development package or SDK, be sure it
+  has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/hans/Desktop/code/cpp/projects/cppbox/volume/hello_crow/cmake-build-debug/CMakeFiles/CMakeError.log".
