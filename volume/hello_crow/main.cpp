@@ -4,6 +4,8 @@
 #include <vector>
 #include <cstdlib>
 #include <boost/filesystem.hpp>
+#include <unordered_set>
+#include <mutex>
 
 #include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/json.hpp>
@@ -96,14 +98,42 @@ void notFound(response &res, const string &message){
 }
 
 int main(int argc, char* argv[]) {
+    std::mutex mtx;
+    std::unordered_set<crow::websocket::connection *> users;
     crow::SimpleApp app;
-
 
     mongocxx::instance inst{};
     string mongoConnect = std::string(getenv("MONGODB_URI"));
     cout << mongoConnect << endl;
     mongocxx::client conn{mongocxx::uri{mongoConnect}};
     auto collection = conn["myfirstdb"]["contact"];
+
+    CROW_ROUTE(app, "/ws")
+    .websocket()
+    .onopen([&](crow::websocket::connection &conn){
+        std::lock_guard<std::mutex> _(mtx);
+        users.insert(&conn);
+    })
+    .onclose([&](crow::websocket::connection &conn, const string &reason){
+        std::lock_guard<std::mutex> _(mtx);
+        users.erase(&conn);
+    })
+    .onmessage([&](crow::websocket::connection &/*conn*/, const string &data, bool is_binary){
+        std::lock_guard<std::mutex> _(mtx);
+        for(auto user :users){
+            if(is_binary){
+                user->send_binary(data);
+            }else{
+                user->send_text(data);
+            }
+        }
+    });
+
+    CROW_ROUTE(app, "/chat")
+            ([](const request &req, response &res){
+                sendHtml(res, "chat");
+            });
+
 
     CROW_ROUTE(app, "/styles/<string>")
             ([](const request &req, response &res, string filename){
@@ -177,10 +207,32 @@ int main(int argc, char* argv[]) {
                 getView(res, "contacts", dto);
             });
 
+    CROW_ROUTE(app, "/api/contacts")
+            ([&collection](const request &req){
+                set_base(".");
+                auto skipVal = req.url_params.get("skip");
+                auto limitVal = req.url_params.get("limit");
+                int skip = skipVal? stoi(skipVal):0;
+                int limit = limitVal? stoi(limitVal): 10;
+                mongocxx::options::find opts;
+                opts.skip(skip);
+                opts.limit(limit);
+                auto docs = collection.find({}, opts);
+                vector<crow::json::rvalue> contacts;
+                contacts.reserve(10);
+
+                for(auto doc : docs){
+                    contacts.push_back(json::load(bsoncxx::to_json(doc)));
+                }
+                crow::json::wvalue dto;
+                dto["contacts"] = contacts;
+                return crow::response{dto};
+            });
+
     CROW_ROUTE(app, "/contact/<int>/<int>")
             ([&collection](const request &req, response &res, int a, int b){
                 set_base(".");
-                res.set_header("Content-Type", text/plain);
+                res.set_header("Content-Type", "text/plain");
                 ostringstream os;
                 os << "Integer: " << a << " + " << b << " = " << a+b << "/n";
                 res.write(os.str());

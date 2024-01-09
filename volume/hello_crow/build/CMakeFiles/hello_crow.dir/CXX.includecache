@@ -2125,6 +2125,10 @@ cstdlib
 -
 boost/filesystem.hpp
 -
+unordered_set
+-
+mutex
+-
 bsoncxx/builder/stream/document.hpp
 -
 bsoncxx/json.hpp
